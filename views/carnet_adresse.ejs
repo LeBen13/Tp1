@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('components/head') %> 
+<body>
+ <%- include('components/entete.ejs') %>
+ <%- include('components/formulaire.ejs') %>
+ <%- include('components/adresses.ejs') %>
+</body>
+
+
+<script type="text/javascript">
+let elmSauver = document.querySelectorAll('.sauver');
+ 
+    for (elm of elmSauver){
+     
+        elm.addEventListener('click', function(){
+ 
+            let noLigne = this.parentNode.parentNode;
+            let id = noLigne.children[0].innerHTML;
+            let nom = noLigne.children[1].innerHTML;
+            let prenom = noLigne.children[2].innerHTML;
+            let telephone = noLigne.children[3].innerHTML;
+            let email = noLigne.children[4].innerHTML;
+
+            let elmForm = document.getElementById('form');
+
+            let elmInput = elmForm.querySelectorAll('input');
+            elmInput[0].value = id;
+            elmInput[1].value = nom;
+            elmInput[2].value = prenom;
+            elmInput[3].value = telephone;
+            elmInput[4].value = email;
+
+            elmForm.submit();
+
+        })
+    } 
+           
+})
+</script>
+</html>
